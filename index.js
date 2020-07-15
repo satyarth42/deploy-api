@@ -23,7 +23,7 @@ app.use('/',router)
 
 const userSchema = require('./models/userModel')
 
-router.post('/',(req,res)=>{
+router.post('/add',(req,res)=>{
     const name = req.body.name
     const newUser = new userSchema({
         _id: new mongoose.Types.ObjectId(),
@@ -41,7 +41,7 @@ router.post('/',(req,res)=>{
 
 })
 
-router.get('/',(req,res)=>{
+router.get('/fetch',(req,res)=>{
     userSchema.find()
     .exec()
     .then(docs=>{
